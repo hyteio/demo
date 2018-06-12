@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/* 
+ * HYTE TECHNOLOGIES, INC. CONFIDENTIAL
+ * 
+ * Copyright © 2017 - 2018 HYTE Technologies, Inc. All Rights Reserved.
+ *  
+ * NOTICE:  All information contained herein is, and remains the property of HYTE Technologies, Inc. 
+ * and its suppliers, if any.  The intellectual and technical concepts contained herein are 
+ * proprietary to HYTE Technologies, Inc. and its suppliers and may be covered by U.S. and Foreign 
+ * Patents, patents in process, and are protected by trade secret or copyright law.  Dissemination 
+ * of this information or reproduction of this material is strictly forbidden unless prior written 
+ * permission is obtained from HYTE Technologies, Inc.
+ */
+-->
+<schema xmlns="http://www.w3.org/2001/XMLSchema" 
+	targetNamespace="urn:newcom.io:quoting:v4" 
+	xmlns:quot="urn:newcom.io:quoting:v4" version="4"
+	elementFormDefault="qualified" attributeFormDefault="unqualified">
+
+	<element name="Quotes" type="quot:Quotes" />
+	<element name="Quote" type="quot:Quote" />
+	
+	<complexType name="Quotes">
+		<sequence>
+			<element name="quote" type="quot:Quote" minOccurs="0" maxOccurs="unbounded" />
+		</sequence>
+	</complexType>
+
+	<complexType name="Quote">
+		<sequence>
+			<element name="items" type="quot:Items" minOccurs="1" maxOccurs="1" />
+		</sequence>
+		<attribute name="creationBy" type="string" use="optional" />
+		<attribute name="creationDateTime" type="dateTime" use="optional" />
+		<attribute name="enabled" type="boolean" use="optional" />
+		<attribute name="expiryDateTime" type="dateTime" use="optional" />
+		<attribute name="contactName" type="string" use="required" />
+		<attribute name="customerName" type="string" use="required" />
+		<attribute name="customerId" type="string" use="required" />
+		<attribute name="updatedBy" type="string" use="optional" />
+		<attribute name="updatedDateTime" type="dateTime" use="optional" />
+		<attribute name="uuid" type="string" use="required" />
+		<attribute name="version" type="string" use="required" />
+	</complexType>
+
+	<complexType name="Items">
+		<sequence>
+			<element name="item" type="quot:Item" minOccurs="0" maxOccurs="unbounded" />
+		</sequence>
+	</complexType>
+	
+	<complexType name="Item">
+		<sequence>
+			<element name="product" type="quot:Product" minOccurs="1" maxOccurs="1" />
+		</sequence>
+		<attribute name="listPrice" type="double" use="required" />
+		<attribute name="unitPrice" type="double" use="required" />
+		<attribute name="quantity" type="long" use="optional" />
+		<attribute name="term" type="int" use="optional" />
+		<attribute name="termUnit" type="quot:TermUnit" use="optional" />
+	</complexType>
+
+   	<simpleType name="Product">
+		<restriction base="string">
+			<enumeration value="All" />
+			<enumeration value="100 Mbps Internet" />
+			<enumeration value="250 Mbps Internet" />
+			<enumeration value="Phone line" />
+			<enumeration value="None" />
+		</restriction>
+	</simpleType>
+
+   	<simpleType name="TermUnit">
+		<restriction base="string">
+			<enumeration value="All" />
+			<enumeration value="Months" />
+			<enumeration value="Years" />
+			<enumeration value="None" />
+		</restriction>
+	</simpleType>
+
+</schema>

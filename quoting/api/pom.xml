@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>io.hyte.demo</groupId>
+        <artifactId>quoting</artifactId>
+        <version>4.1.5.hyte-4007-SNAPSHOT</version>
+        <relativePath>../pom.xml</relativePath>
+    </parent>
+    <artifactId>quoting-api</artifactId>
+    <packaging>bundle</packaging>
+    <name>HYTE :: Demo :: Quoting API</name>
+    <properties>
+		<hyte.osgi.import>io.newcom.quoting.v4;version="[4,5)"</hyte.osgi.import>
+        <hyte.osgi.export>io.newcom.quoting.api;-noimport:=true</hyte.osgi.export>
+    </properties>
+    <dependencies>
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>quoting-model</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+    </dependencies>
+</project>
