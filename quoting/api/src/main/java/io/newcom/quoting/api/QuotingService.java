@@ -13,11 +13,13 @@ package io.newcom.quoting.api;
 import java.util.List;
 
 import io.newcom.quoting.v4.Quote;
+import io.newcom.quoting.v4.QuoteSearch;
+import io.newcom.quoting.v4.QuoteSummary;
 
 public interface QuotingService {
 
 	Quote save(Quote quote) throws QuoteException;
 	Quote getQuote(String quoteId) throws QuoteException;
-	List<Quote> list() throws QuoteException;
-	List<Quote> list(String quoteOwner) throws QuoteException;
+	List<QuoteSummary> search(QuoteSearch quoteSearch) throws QuoteException;
+
 }

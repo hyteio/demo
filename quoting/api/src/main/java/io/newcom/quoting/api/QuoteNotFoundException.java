@@ -1,4 +1,4 @@
-/**  
+/**
  * Copyright © 2017 - 2018 HYTE Technologies, Inc. All Rights Reserved.
  *  
  * NOTICE:  All information contained herein is, and remains the property of HYTE Technologies, Inc. 
@@ -10,22 +10,23 @@
  */
 package io.newcom.quoting.api;
 
-public class QuoteException extends Exception {
-	private static final long serialVersionUID = 8337610952380024707L;
-	
-	public QuoteException() {
+public class QuoteNotFoundException extends Exception {
+
+	private static final long serialVersionUID = 7135543001735582122L;
+
+	public QuoteNotFoundException() {
 		super();
 	}
 
-	public QuoteException(String message, Throwable cause) {
+	public QuoteNotFoundException(String message, Throwable cause) {
 		super(message, cause);
 	}
 
-	public QuoteException(String message) {
+	public QuoteNotFoundException(String message) {
 		super(message);
 	}
 
-	public QuoteException(Throwable cause) {
+	public QuoteNotFoundException(Throwable cause) {
 		super(cause);
 	}
 }
