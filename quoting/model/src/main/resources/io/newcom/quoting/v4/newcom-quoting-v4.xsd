@@ -33,15 +33,47 @@
 		</sequence>
 		<attribute name="creationBy" type="string" use="optional" />
 		<attribute name="creationDateTime" type="dateTime" use="optional" />
-		<attribute name="enabled" type="boolean" use="optional" />
 		<attribute name="expiryDateTime" type="dateTime" use="optional" />
 		<attribute name="contactName" type="string" use="required" />
 		<attribute name="customerName" type="string" use="required" />
 		<attribute name="customerId" type="string" use="required" />
+		<attribute name="quoteId" type="string" use="required" />
+		<attribute name="totalPrice" type="double" use="optional" />
 		<attribute name="updatedBy" type="string" use="optional" />
 		<attribute name="updatedDateTime" type="dateTime" use="optional" />
-		<attribute name="uuid" type="string" use="required" />
-		<attribute name="version" type="string" use="required" />
+	</complexType>
+
+	<complexType name="QuoteSearch">
+		<attribute name="createdByFilter" type="string" use="optional" />
+		<attribute name="customerNameFilter" type="string" use="optional" />
+		<attribute name="quoteId" type="string" use="optional" />
+		<attribute name="totalPriceMin" type="double" use="optional" />
+		<attribute name="totalPriceMax" type="double" use="optional" />
+		<attribute name="createdDateTimeStart" type="dateTime" use="optional" />
+		<attribute name="createdDateTimeEnd" type="dateTime" use="optional" />
+		<attribute name="expiryDateTimeStart" type="dateTime" use="optional" />
+		<attribute name="expiryDateTimeEnd" type="dateTime" use="optional" />
+		<attribute name="updatedDateTimeStart" type="dateTime" use="optional" />
+		<attribute name="updatedDateTimeEnd" type="dateTime" use="optional" />
+		<attribute name="resultsLimit" type="int" use="optional" />
+		<attribute name="resultsOffset" type="int" use="optional" />
+		<attribute name="queryTimeoutMillis" type="long" use="optional" />
+	</complexType>
+
+	<complexType name="QuoteSummary">
+		<attribute name="createdBy" type="string" use="optional" />
+		<attribute name="createdDateTime" type="dateTime" use="optional" />
+		<attribute name="expiryDateTime" type="dateTime" use="optional" />
+		<attribute name="contactName" type="string" use="required" />
+		<attribute name="customerName" type="string" use="required" />
+		<attribute name="customerId" type="string" use="required" />
+		<attribute name="itemCount" type="int" use="optional" />
+		<attribute name="quoteId" type="string" use="required" />
+		<attribute name="totalDiscount" type="double" use="optional" />
+		<attribute name="totalDiscountPct" type="double" use="optional" />
+		<attribute name="totalPrice" type="double" use="optional" />
+		<attribute name="updatedBy" type="string" use="optional" />
+		<attribute name="updatedDateTime" type="dateTime" use="optional" />
 	</complexType>
 
 	<complexType name="Items">
@@ -56,6 +88,8 @@
 		</sequence>
 		<attribute name="listPrice" type="double" use="required" />
 		<attribute name="unitPrice" type="double" use="required" />
+		<attribute name="discountAmount" type="double" use="required" />
+		<attribute name="discountPct" type="double" use="required" />
 		<attribute name="quantity" type="long" use="optional" />
 		<attribute name="term" type="int" use="optional" />
 		<attribute name="termUnit" type="quot:TermUnit" use="optional" />
